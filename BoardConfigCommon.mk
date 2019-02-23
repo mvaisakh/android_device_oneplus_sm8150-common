@@ -44,7 +44,6 @@ TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
 
 # Properties
 TARGET_ODM_PROP += $(VENDOR_PATH)/odm.prop
