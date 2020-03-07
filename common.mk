@@ -358,11 +358,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     oneplus-fwk.oneplus_msmnile
 
-# Power
+# Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
 
-$(call inherit-product, vendor/qcom/opensource/power/power-vendor-product.mk)
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service.msmnile-libperfmgr
 
 # Protobuf
 PRODUCT_PACKAGES += \
