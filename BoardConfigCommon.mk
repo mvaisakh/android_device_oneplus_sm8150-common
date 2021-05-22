@@ -5,7 +5,7 @@
 #
 
 BUILD_BROKEN_DUP_RULES := true
-
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 BOARD_VENDOR := oneplus
 
 VENDOR_PATH := device/oneplus/sm8150-common
