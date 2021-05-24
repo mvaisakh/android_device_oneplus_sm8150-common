@@ -190,7 +190,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sdio.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.qti.chg_policy.sh \
     init.qti.dcvs.sh \
@@ -459,8 +458,7 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service \
+$(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)
 
 # Wifi
 PRODUCT_PACKAGES += \
