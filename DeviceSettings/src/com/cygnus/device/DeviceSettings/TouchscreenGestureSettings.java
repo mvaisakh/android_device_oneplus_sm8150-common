@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -37,10 +37,10 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 
-import com.android.internal.statix.hardware.LineageHardwareManager; // Need FWB support
-import com.android.internal.statix.hardware.TouchscreenGesture; // Need FWB support
+import com.android.internal.cygnus.hardware.LineageHardwareManager; // Need FWB support
+import com.android.internal.cygnus.hardware.TouchscreenGesture; // Need FWB support
 
-import com.statix.device.DeviceSettings.R;
+import com.cygnus.device.DeviceSettings.R;
 
 import java.lang.System;
 

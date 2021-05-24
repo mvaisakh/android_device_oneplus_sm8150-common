@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.content.res.Resources;
 import android.util.Log;
@@ -118,7 +118,7 @@ public class Utils {
     public static String getStringForResourceName(final Resources res,
                                                   final String resourceName,
                                                   final String defaultValue) {
-        final int resId = res.getIdentifier(resourceName, "string", "com.statix.device.DeviceSettings");
+        final int resId = res.getIdentifier(resourceName, "string", "com.cygnus.device.DeviceSettings");
         if (resId <= 0) {
             Log.e(TAG, "No resource found for " + resourceName);
             return defaultValue;

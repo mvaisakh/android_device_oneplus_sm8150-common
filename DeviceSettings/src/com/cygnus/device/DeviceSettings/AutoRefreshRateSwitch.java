@@ -15,27 +15,20 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.content.Context;
 import android.provider.Settings;
 
-public class RefreshRateSwitch {
+import com.cygnus.device.DeviceSettings.DeviceSettings;
 
-    public RefreshRateSwitch() { }
+public class AutoRefreshRateSwitch {
+
+    public static final String SETTINGS_KEY = DeviceSettings.KEY_SETTINGS_PREFIX + DeviceSettings.KEY_AUTO_REFRESH_RATE;
+
+    public AutoRefreshRateSwitch() { }
 
     public static boolean isCurrentlyEnabled(Context context) {
-        boolean peak = Settings.System.getFloat(context.getContentResolver(),
-                Settings.System.PEAK_REFRESH_RATE, 90f) == 90f;
-        boolean min = Settings.System.getFloat(context.getContentResolver(),
-                Settings.System.MIN_REFRESH_RATE, 60f) == 90f;
-        return peak && min;
-    }
-
-    public static void setPeakRefresh(Context context, boolean enabled) {
-        Settings.System.putFloat(context.getContentResolver(),
-                Settings.System.PEAK_REFRESH_RATE, enabled ? 90f : 60f);
-        Settings.System.putFloat(context.getContentResolver(),
-                Settings.System.MIN_REFRESH_RATE, enabled ? 90f : 60f);
+        return Settings.System.getInt(context.getContentResolver(), SETTINGS_KEY, 1) == 1;
     }
 }

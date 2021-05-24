@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.content.Context;
 import android.media.AudioManager;

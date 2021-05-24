@@ -15,13 +15,17 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceManager;
 
-public class HBMModeSwitch {
+public class SRGBModeSwitch implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm";
+    private static final String FILE = "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_srgb_color_mode";
 
     public static String getFile() {
         if (Utils.fileWritable(FILE)) {
@@ -36,5 +40,12 @@ public class HBMModeSwitch {
 
     public static boolean isCurrentlyEnabled(Context context) {
         return Utils.getFileValueAsBoolean(getFile(), false);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        Boolean enabled = (Boolean) newValue;
+        Utils.writeValue(getFile(), enabled ? "1" : "0");
+        return true;
     }
 }

@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -43,8 +43,8 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
-import com.android.internal.util.statix.FileUtils;
-import com.statix.device.DeviceSettings.Constants;
+import com.android.internal.util.cygnus.FileUtils;
+import com.cygnus.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -141,7 +141,7 @@ public class DeviceSettings extends PreferenceFragment
             Boolean enabled = (Boolean) newValue;
             Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");
             Intent hbmIntent = new Intent(this.getContext(),
-                    com.statix.device.DeviceSettings.HBMModeService.class);
+                    com.cygnus.device.DeviceSettings.HBMModeService.class);
             if (enabled) {
                 this.getContext().startService(hbmIntent);
             } else {

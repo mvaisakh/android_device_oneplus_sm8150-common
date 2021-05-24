@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -24,7 +24,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 
-import com.statix.device.DeviceSettings.HBMModeSwitch;
+import com.cygnus.device.DeviceSettings.HBMModeSwitch;
 
 public class HBMModeService extends Service {
 

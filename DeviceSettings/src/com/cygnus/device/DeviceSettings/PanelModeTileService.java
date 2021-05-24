@@ -15,23 +15,14 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.statix.device.DeviceSettings;
+package com.cygnus.device.DeviceSettings;
 
 import android.annotation.TargetApi;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import androidx.preference.PreferenceManager;
-
-import java.lang.IllegalArgumentException;
 
 @TargetApi(24)
-public class HBMModeTileService extends TileService {
-
-    private Intent mHbmIntent;
-
+public class PanelModeTileService extends TileService {
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -44,14 +35,12 @@ public class HBMModeTileService extends TileService {
 
     @Override
     public void onTileRemoved() {
-        tryStopService();
         super.onTileRemoved();
     }
 
     @Override
     public void onStartListening() {
         super.onStartListening();
-        updateState();
     }
 
     @Override
@@ -62,27 +51,8 @@ public class HBMModeTileService extends TileService {
     @Override
     public void onClick() {
         super.onClick();
-        boolean enabled = HBMModeSwitch.isCurrentlyEnabled(this);
-        // NOTE: reverse logic, enabled reflects the state before press
-        Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "0" : "5");
-        if (!enabled) {
-            mHbmIntent = new Intent(this,
-                    com.statix.device.DeviceSettings.HBMModeService.class);
-            this.startService(mHbmIntent);
-        }
-        updateState();
-    }
-
-    private void updateState() {
-        boolean enabled = HBMModeSwitch.isCurrentlyEnabled(this);
-        if (!enabled) tryStopService();
-        getQsTile().setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-        getQsTile().updateTile();
-    }
-
-    private void tryStopService() {
-        if (mHbmIntent == null) return;
-        this.stopService(mHbmIntent);
-        mHbmIntent = null;
+        Intent panelModes = new Intent(this, PanelSettingsActivity.class);
+        panelModes.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityAndCollapse(panelModes);
     }
 }
