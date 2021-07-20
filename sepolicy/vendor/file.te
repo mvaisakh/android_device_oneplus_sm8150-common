@@ -17,6 +17,7 @@ type opf_file, file_type;
 
 # sockets
 type vl53l1_socket, file_type;
+type pps_socket, file_type;
 
 # sysfs
 type sysfs_aod, sysfs_type, fs_type;
