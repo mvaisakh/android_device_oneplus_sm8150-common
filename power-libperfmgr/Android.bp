@@ -13,6 +13,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+cc_library {
+    name: "libdisppower-msmnile",
+    proprietary: true,
+    srcs: [
+        "disp-power/display-helper.cpp",
+        "disp-power/InteractionHandler.cpp",
+    ],
+     shared_libs: [
+        "libbase",
+        "libcutils",
+        "liblog",
+        "libperfmgr",
+        "libutils",
+    ],
+}
+
 cc_binary {
     name: "android.hardware.power-service.msmnile-libperfmgr",
     relative_install_path: "hw",
@@ -26,6 +42,7 @@ cc_binary {
         "liblog",
         "libutils",
         "libbinder_ndk",
+        "libdisppower-msmnile",
         "libperfmgr",
     ],
     srcs: [
